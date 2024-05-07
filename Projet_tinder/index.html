@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DrawnTogether</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link rel="shortcut icon" href="images/logo.jpg">
+    <link rel="stylesheet" type="text/css" href="index_css.css">
+    <style>
+        #canvas-container {
+            width: 500px;
+            height: 300px;
+            border: 1px solid #000;
+        }
+        canvas {
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <p class="gradient-text" id="drawnTogether">DrawnTogether</p>&nbsp;&nbsp;&nbsp;
+            <h2>Abonnements</h2>&nbsp;&nbsp;&nbsp;
+            <h2><a href="verification_test.php" class="custom-link">S'identifier</a></h2>&nbsp;&nbsp;&nbsp;
+            <h2>Administrateur</h2>&nbsp;&nbsp;&nbsp;
+            <h2><a href="index3.html" class="custom-link">Utilisateur</a></h2>&nbsp;&nbsp;&nbsp;
+            <a href="index3.html">
+                <img id ="logo_user" src="images/logo_utilisateur.png">
+            </a>
+        </div>
+    </nav>
+    
+    <h3>Dessinez ici</h3>
+    <div id="canvas-container">
+        <canvas id="drawingCanvas" width="500" height="300"></canvas>
+    </div>
+
+    <div id="colors">
+        <button class="color" data-color="black"></button>
+        <button class="color" data-color="red"></button>
+        <button class="color" data-color="green"></button>
+        <button class="color" data-color="blue"></button>
+        <button id="clearButton">Effacer</button>
+        <input type="range" id="thicknessRange" min="1" max="15" value="3">
+    </div>
+
+    <script>
+        document.getElementById('drawnTogether').addEventListener('click', function() {
+            this.style.color = 'purple'; // Change la couleur du texte au clic
+    // Redirige vers une autre page après un délai de 500 millisecondes
+            setTimeout(function() {
+                window.location.href = 'index2.html'; // URL de la nouvelle page
+            }, 50); // Délai en millisecondes
+        });
+        // JavaScript pour dessiner sur le canvas
+        document.addEventListener('DOMContentLoaded', function() {
+            var canvas = document.getElementById('drawingCanvas');
+            var context = canvas.getContext('2d');
+
+            var isDrawing = false;
+            var lastX = 0;
+            var lastY = 0;
+            var currentColor = 'black';
+            var thickness = 3;
+
+            canvas.addEventListener('mousedown', function(e) {
+                isDrawing = true;
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+
+            canvas.addEventListener('mousemove', function(e) {
+                if (isDrawing) {
+                    context.strokeStyle = currentColor;
+                    context.lineWidth = thickness;
+                    context.lineCap = 'round';
+                    context.beginPath();
+                    context.moveTo(lastX, lastY);
+                    context.lineTo(e.offsetX, e.offsetY);
+                    context.stroke();
+                    [lastX, lastY] = [e.offsetX, e.offsetY];
+                }
+            });
+
+            canvas.addEventListener('mouseup', function() {
+                isDrawing = false;
+            });
+
+            canvas.addEventListener('mouseout', function() {
+                isDrawing = false;
+            });
+            var colorButtons = document.querySelectorAll('.color');
+            colorButtons.forEach(function(button) {
+                button.addEventListener('click', function() {
+                    currentColor = this.dataset.color; // Récupère la couleur à partir de l'attribut data-color
+                });
+            });
+            var thicknessRange = document.getElementById('thicknessRange');
+            thicknessRange.addEventListener('input', function() {
+                thickness = parseInt(this.value); // Met à jour l'épaisseur du trait
+            });
+
+            var clearButton = document.getElementById('clearButton');
+            clearButton.addEventListener('click', function() {
+                context.clearRect(0, 0, canvas.width, canvas.height); // Efface tout le contenu du canevas
+            });
+        });
+    </script>
+</body>
+</html>
