@@ -1,0 +1,75 @@
+
+body {
+    font-family: 'Roboto',sans-serif;
+    flex-direction: column;
+    justify-content: center; /* Centrer le contenu horizontalement */
+    align-items: center; /* Centrer le contenu verticalement */
+}
+
+.container { /* text administratif etc *
+    width: 100%; /* Le tiers de la largeur de la fenêtre */
+    height: 50vh;
+    padding-top: 20vh;
+    background-image: url('images/first_background.jpg'); /* Chemin vers votre image */
+    background-size: contain;
+    color: black; /* Couleur du texte */
+    padding: 20px; /* Ajouter un espace intérieur pour le contenu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.gradient-text {
+    font-size: 40px;
+    background-image: linear-gradient(to right, skyblue, gold); /* Dégradé de couleur doré à bleu ciel */
+    background-clip: text; /* Définit la zone sur laquelle le fond est dessiné */
+    text-shadow: 
+        0 0 5px gold,   /* Ombre portée dorée */
+        0 0 10px orange, /* Ombre portée orange */
+        0 0 15px red,   /* Ombre portée rouge */
+        0 0 20px purple, /* Ombre portée violette */
+        0 0 25px blue;  /* Ombre portée bleue */
+}
+
+#colors {
+    margin-top: 10px;
+    display: flex;
+}
+
+.color {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.color[data-color="black"] {
+    background-color: black;
+}
+
+.color[data-color="red"] {
+    background-color: red;
+}
+
+.color[data-color="green"] {
+    background-color: green;
+}
+
+.color[data-color="blue"] {
+    background-color: blue;
+}
+
+#logo_user{
+    width: 25px;
+    height: 25px;
+    padding-top: 20px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.custom-link {
+    text-decoration: none;
+    color: inherit;
+}
+

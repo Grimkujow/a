@@ -1,0 +1,77 @@
+/* Styles pour la barre latérale */
+.sidebar {
+    background-color: #d6d6d6; /* Couleur de fond */
+    color: #000000; /* Couleur du texte */
+    width: 200px; /* Largeur de la barre latérale */
+    height: 100%; /* Hauteur de la barre latérale */
+    position: fixed; /* Position fixée pour rester visible lors du défilement */
+    top: 0; /* Alignement en haut */
+    left: 0; /* Alignement à gauche */
+    overflow-y: auto; /* Défilement vertical automatique si le contenu dépasse */
+}
+
+.sidebar ul {
+    list-style-type: none; /* Pas de puces */
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0; /* Espacement du haut et du bas */
+    text-align: center; /* Alignement du texte au centre */
+}
+
+.sidebar ul li a {
+    color: #292929; /* Couleur du lien */
+    text-decoration: none; /* Pas de soulignement */
+    display: block; /* Affichage en bloc pour occuper toute la largeur */
+}
+
+/* Styles pour le contenu */
+.content {
+    margin-left: 220px; /* Marge à gauche pour compenser la largeur de la barre latérale */
+    padding: 20px; /* Espacement interne du contenu */
+}
+
+.button {
+  position: relative;
+  overflow: visible;
+  height: 3rem;
+    width: 10rem;
+  padding: 0;
+  border-radius: 0rem;
+  background: #bababa;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    rgba(186, 186, 186, 1) 10.8%,
+    rgba(255, 255, 255, 1) 94.3%
+  );
+  transition: all 0.475s;
+}
+
+
+
