@@ -1,0 +1,119 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+.modal-dialog {
+  margin: auto; /* Centre le modal horizontalement */
+  margin-top: calc(50vh - 100px); /* Centre le modal verticalement */
+  max-width: 400px;
+}
+.modal-content{
+    box-shadow: 1px 1px 0 0 #424242;
+    border: 1px solid #fff;
+    border-right-color: #848484;
+    border-bottom-color: #848484;
+    background: silver;
+    padding: 2px;
+}
+.modal-header{
+    height: 32px;
+    background: -webkit-linear-gradient(left,#08216b,#a5cef7)!important;
+    color:white;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+.modal-header .btn{
+    margin-top: 5px;
+    padding-bottom: 10px;
+    height: 22px;
+    width: 22px;
+}
+.modal-header .btn span{
+    position: absolute;
+    top: 6px;
+    right: 14px;
+}
+.modal-title{
+    padding-top: 2px;
+    padding-bottom: 1px;
+}
+.modal-footer{
+    padding: 6px;
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.openModalBtn{
+  border-width: 2px;
+  border-style: outset;
+  border-color: buttonface;
+  border-right-color: #424242;
+  border-bottom-color: #424242;
+  background: silver;
+  color: black;
+  padding: 0 0 4px;
+  border-radius: 1px;
+}
+.openModalBtn:hover {
+  border: 2px inset #fff;
+  background: silver;
+  color: #424242;
+  box-shadow: -1px -1px #000;
+}
+.openModalBtn:focus {
+  border: 2px inset #fff !important;
+  background: silver;
+  color: #424242;
+  box-shadow: -1px -1px #000 !important;
+  outline: 0 !important;
+  background: url(assets/background.bmp);
+}
+.openModalBtn:active {
+  border: 2px inset #fff !important;
+  color: #424242;
+  box-shadow: -1px -1px #000 !important;
+  outline: 0 !important;
+  background: url(assets/background.bmp);
+}
+
+.openModalBtn-primary{
+  padding-left: 8px;
+  padding-right: 8px;
+}
+openModalBtn:focus{
+  outline: 1px dotted;
+}
+.openModalBtn.disabled,.openModalBtn:disabled{
+  cursor: default;
+  background-color: silver;
+  border-style: outset;
+  border-color: buttonface;
+  border-right-color: #424242;
+  border-bottom-color: #424242;
+  color: grey;
+  text-shadow: 1px 1px #fff;
+}
+

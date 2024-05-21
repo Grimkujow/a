@@ -6,19 +6,15 @@ body {
     align-items: center; /* Centrer le contenu verticalement */
 }
 
-.container { /* text administratif etc *
-    width: 100%; /* Le tiers de la largeur de la fenêtre */
-    height: 50vh;
-    padding-top: 20vh;
-    background-image: url('images/first_background.jpg'); /* Chemin vers votre image */
-    background-size: contain;
-    color: black; /* Couleur du texte */
-    padding: 20px; /* Ajouter un espace intérieur pour le contenu */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+#canvas-container {
+    width: 700px;
+    height: 500px;
+    border: 1px solid #000;
+    background-color: white
 }
-
+canvas {
+    border: 1px solid #000;
+}
 
 .gradient-text {
     font-size: 40px;
@@ -59,13 +55,6 @@ body {
 
 .color[data-color="blue"] {
     background-color: blue;
-}
-
-#logo_user{
-    width: 25px;
-    height: 25px;
-    padding-top: 20px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
 }
 
 .custom-link {

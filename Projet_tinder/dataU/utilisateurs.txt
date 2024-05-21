@@ -1,4 +1,6 @@
-caca@gmail.com,$2y$10$lEuFmkXIqDL/At0F8JSZbu3Sw3Rjn1J8vdtZUIKhyIjV3O9rNYMuC
-caca@gmail.com,$2y$10$MiZfPuBrY9aGytCVH22KgOKZ7YHtgnOhupA2npyuN5zMLj/Q8CJUO
-caca@gma.com,$2y$10$v80oXGXC3LYUe93EHqt0T.vFa4lELHcHfhfSZ/S4IsvrEc/iDcnlO
-ugg@hk,$2y$10$sPEvvs4McYAeZy.T59ecU.QFCz/hRLi2EUyBktxG48gRtjDNJZoUi
+coco@gmail.com,664b14b6e6e80,CocoGaming,$2y$10$r2yoPc6TNK7mB2x4U1FA/e.AKQ4qlVF3aNe1pGEX3/G9tO0P4h0lm,homme,0,2024-05-20,19,Poissy
+dover@gmail.com,664b1f6044f21,destroylonely,$2y$10$/aXqjPRqOScriHep.U1cvuHy/t2nUqNXscUFXS4LJfqdWiXyfhYFG,homme,1,2024-05-20,24,opium
+pellerinco@cy-tech.fr,664b24749de06,pelle,$2y$10$YtyDo.t46FSrbWe/cff1meVoq1JdCc5miee0iWp0wdX.y.TYoQ0Fq,homme,0,2024-05-20,19,pellecity
+lameredecorentin@gmail.com,664b6f4e1c237,hitlernazi,$2y$10$dvZzf.aRDDcgK546jqfdSeDvfneWATBKKhIPB5yCxVw5Cz8h9Ffle,homme,0,2024-05-20,34,achères
+feu@gmail.com,664b784f0695b,stalinejuif,$2y$10$t2Qywg6ghUyzbbKk3XgDm.VY4gWAQyHk/XeiA9F2jKEFnEqvSivni,homme,0,2024-05-20,55,achères
+romeocoteivoire@gmail.com,664cb0822707a,Rom,$2y$10$wElk9urD4mG.L23VpbNYQ.XV/VYxwnRoKkDlJuvlwDTpNZknKkuvu,autre,0,2024-05-21,19,Vrnlt

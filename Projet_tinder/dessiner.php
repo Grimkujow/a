@@ -1,23 +1,39 @@
-<h3>Dessinez ici</h3>
 <div id="canvas-container">
-    <canvas id="drawingCanvas" width="500" height="300"></canvas>
+    <canvas id="drawingCanvas" width="700" height="500"></canvas>
 </div>
-
-<div id="colors">
-    <button class="color" data-color="black"></button>
-    <button class="color" data-color="red"></button>
-    <button class="color" data-color="green"></button>
-    <button class="color" data-color="blue"></button>
-    <button id="eraserButton">Gomme</button>
-    <button id="clearButton">Effacer</button>
-    <input type="range" id="thicknessRange" min="1" max="15" value="3">
-</div>
-
+    <div id="colors">
+        <button class="color" data-color="black"></button>
+        <button class="color" data-color="red"></button>
+        <button class="color" data-color="green"></button>
+        <button class="color" data-color="blue"></button>
+        <button class="color" data-color="yellow"></button>
+        <button class="color" data-color="orange"></button>
+        <button class="color" data-color="purple"></button>
+        <button class="color" data-color="cyan"></button>
+        <button class="color" data-color="magenta"></button>
+        <button class="color" data-color="brown"></button>
+        <button id="eraserButton">
+            <img src="/eraser4.png" alt="Gomme class="gomme-img">
+        </button>&nbsp;&nbsp;
+        <button id="clearButton">Effacer</button>
+        <input type="range" id="thicknessRange" min="1" max="15" value="3">
+        <form action="save_image.php" method="post" enctype="multipart/form-data">
+            <button id="saveButton">Sauvegarder le dessin</button>
+            <input type="hidden" name="imageData" id="imageData">
+        </form>
+    </div>
 <script>
     // JavaScript pour dessiner sur le canvas
     document.addEventListener('DOMContentLoaded', function() {
         var canvas = document.getElementById('drawingCanvas');
         var context = canvas.getContext('2d');
+
+        // pour l'enregistrement du dessin
+        var form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            var imageData = canvas.toDataURL();
+            document.getElementById('imageData').value = imageData;
+        });
 
         var isDrawing = false;
         var lastX = 0;
