@@ -7,6 +7,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <link rel="shortcut icon" href="../../main_image/logo.png">
     <link rel="stylesheet" type="text/css" href="../../sidebar_css.css">
+    <style>
+        .image-container {
+            border: 2px solid black;
+            padding: 10px;
+            display: inline-block;
+            background-color: white;
+        }
+        .image-container img {
+            width: 200px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <?php include('../../sidebar.php'); ?>
@@ -40,21 +52,21 @@
             $lines = file($file, FILE_IGNORE_NEW_LINES);
             global $total_users;
 
-            $email_ban = '';
-
             foreach ($lines as $key => $ligne) {
                 $data = explode(",", $ligne);
                 if ($data[2] == $pseudo) {
-                    $email_ban = $data[0];
                     unset($lines[$key]);
                     $total_users--;
+
+                    $id = $data[1];
+                    $chemin_image = "/Projet_tinder/sidebar/sidebar_utilisateur/user_drawing/$id.png";
+                    if (file_exists($_SERVER['DOCUMENT_ROOT'] . $chemin_image)) {
+                        unlink($_SERVER['DOCUMENT_ROOT'] . $chemin_image);
+                    }
+                    file_put_contents('../../dataU/ban_users.txt', $data[0] . PHP_EOL, FILE_APPEND);
                 }
             }
-            if (!empty($email_ban)) {
-                file_put_contents('../../dataU/ban_users.txt', $email_ban . PHP_EOL, FILE_APPEND);
-            }
             file_put_contents($file, implode(PHP_EOL, $lines));
-            file_put_contents($file, PHP_EOL, FILE_APPEND);
 
             echo "L'utilisateur $pseudo a bien été banni.";
         }
@@ -79,7 +91,37 @@
                 echo "Sexe : $sexe<br>";
                 echo "Date d'inscription : $date<br>";
                 echo "Age : $age<br>";
-                echo "Ville : $ville<br>";
+                echo "Ville : $ville<br><br>";
+                $chemin = "/Projet_tinder/sidebar/sidebar_utilisateur/user_drawing/" . $id . '/';
+                $imageCount = 1;
+                $imageFound = false;
+
+                while (true) {
+                    $imagePath = $uploadDirectory . 'img-' . $imageCount . '.png';
+                    echo '<div class="image-container">';
+                    if (file_exists($imagePath)){ 
+                        echo "<img src='$imagePath' alt='Drawing'>";
+                        $imageCount++;
+                        $imageFound = true;
+                    }
+                    else {
+                        break;
+                    }
+                    echo '</div>';
+                }
+
+                if (!$imageFound) {
+                    echo "Aucune image trouvée pour cet utilisateur.";
+                }
+                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $chemin)) {
+                    echo "Dessin :&nbsp;";
+                    echo '<div class="image-container">';
+                    echo "<img src=\"$chemin\" alt=\"Drawing\">";
+                    echo '</div>';
+                } 
+                else {
+                    echo "<p><em>Le dessin n'a pas encore été créé par $pseudo.</em></p>";
+                }
             } 
             else {
                 echo "<p style=\"color:red;\">Erreur : Aucun utilisateur a été sélectionné.</p>";

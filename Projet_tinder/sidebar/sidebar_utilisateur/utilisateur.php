@@ -13,6 +13,7 @@
             border: 2px solid black;
             padding: 10px;
             display: inline-block;
+            background-color: white;
         }
         .image-container img {
             width: 400px;
@@ -29,24 +30,73 @@
         </div><br>
         <?php include('show_data_user.php'); ?>
         <br><br><br><br><p>Votre dessin : </p>
-        <div class="image-container">
         <?php
-        $chemin = "/Projet_tinder/sidebar/sidebar_utilisateur/user_drawing/{$_SESSION['user_id']}.png";
-            if (file_exists($_SERVER['DOCUMENT_ROOT'] . $chemin)) {
-                echo "<img src=\"$chemin\" alt=\"Drawing\">";
-            } else {
-                echo "L'image n'existe pas.";
+            function get_user_abo($file, $id){
+                if (file_exists($file) && is_readable($file)) {
+                    $content = file_get_contents($file);
+                    $lines = explode(PHP_EOL, $content);
+                    foreach($lines as $line){
+                        $data = explode(',', $line);
+
+                        if (isset($data[1]) && $data[1] === $id) {
+                            return $data[5];
+                        }
+                    }
+                }
+                else {
+                    echo "Erreur: Le fichier $file n'existe pas ou n'est pas lisible.";
+                }
+
+            return null;
             }
+            $id = $_SESSION['user_id'];
+            $file = '../../dataU/utilisateurs.txt';
+            $nb_abo = get_user_abo($file, $id);
+            $uploadDirectory = 'user_drawing/' . $id . '/';
+            if($nb_abo == 0){
+                $imagePath = $uploadDirectory . 'img-1.png';
+                if (file_exists($imagePath)) {
+                    echo "<img src=\"$imagePath\" alt=\"Drawing\">";
+                } 
+                else {
+                    echo "L'image n'existe pas.";
+                }
+            }
+            else if($nb_abo == 1){
+                    $imageCount = 1;
+                    $imageFound = false;
+
+                    while (true) {
+                        $imagePath = $uploadDirectory . 'img-' . $imageCount . '.png';
+                        echo '<div class="image-container">';
+                        if (file_exists($imagePath)){ 
+                            echo "<img src='$imagePath' alt='Drawing'>";
+                            $imageCount++;
+                            $imageFound = true;
+                        }
+                        else {
+                            break;
+                        }
+                        echo '</div>';
+                    }
+
+                    if (!$imageFound) {
+                        echo "Aucune image trouvée pour cet utilisateur.";
+                    }
+            }
+            else {
+                    echo "Niveau d'abonnement invalide.";
+                }
+            
         ?>
-        </div>
         <br><br><br>
-        <p style="font-size: 20px;">
-            <a href="edit_user.php">Modifier le profil</a>
-        </p>
-           <?php
-        if ($_SESSION['loggedin'] == true) {
-            echo '<a href="deconnexion.php">Déconnexion</a>';
-        } ?>
-    </div>
+        <button class="btn">
+        <span class="button-content">
+            <a href="edit_user.php" class="custom-link">Modifier le profil</a></span></button>
+        <button class="btn">
+        <span class="button-content" ><a href="deconnexion.php" class="custom-link">Déconnexion</a></span></button>
+        </div>
+        </div>
+
 </body>
 </html>

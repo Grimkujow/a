@@ -1,4 +1,5 @@
 <?php
+
 // Désactiver l'affichage des erreurs à l'écran
 ini_set('display_errors', 'Off');
 
@@ -15,6 +16,8 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
     return true; // Indique que l'erreur a été gérée
 });
 
+// Pour le débogage : afficher la valeur de $_SESSION['loggedin']
+error_log('$_SESSION[\'loggedin\']: ' . (isset($_SESSION['loggedin']) ? $_SESSION['loggedin'] : 'non défini'));
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +27,11 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page de la barre latérale</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="sidebar">
@@ -41,12 +49,21 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
                 </button>
             </li>
             <li>
-                <button class="btn">
+                <button class="btn <?php echo (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) ? 'hidden' : ''; ?>">
                     <span class="button-content">
                         <a href="/Projet_tinder/sidebar/sidebar_identifier/identifier.php" class="custom-link">S'identifier</a>
                     </span>
                 </button>
             </li>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?> 
+            <li>
+                <button class="btn">
+                    <span class="button-content">
+                        <a href="/Projet_tinder/sidebar/sidebar_galerie/galerie.php" class="custom-link">Galerie</a>
+                    </span>
+                </button>
+            </li>
+    <?php endif; ?>
             <li>
                 <button class="btn">
                     <span class="button-content">
@@ -54,6 +71,7 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
                     </span>
                 </button>
             </li>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?> 
             <li>
                 <button class="btn">
                     <span class="button-content">
@@ -61,6 +79,7 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
                     </span>
                 </button>
             </li>
+    <?php endif; ?>
             <li>
                 <button class="btn">
                     <span class="button-content">
@@ -68,6 +87,13 @@ set_error_handler(function ($errno, $errstr, $errfile, $errline) {
                     </span>
                 </button>
             </li>
+            <li>
+                <button class="btn">
+                    <span class="button-content">
+                        <a href="/Projet_tinder/messagerie/choixdisc.php" class="custom-link">Messagerie</a>
+                    </span>
+                </button>
+            </li> 
         </ul>
     </div>
 </body>

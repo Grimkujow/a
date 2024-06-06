@@ -24,8 +24,9 @@
     Sexe : <input type="radio" name="genre" value="homme" checked>Homme
     <input type="radio" name="genre" value="femme">Femme
     <input type="radio" name="genre" value="autre">Autre<br>
-    <button type="submit">S'inscrire</button>
+    <button class="btn" type="submit">S'inscrire</button>
 </form>
+
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["mot_de_passe"])) {
     $email = $_POST["email"];
@@ -108,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
             return true;
         }
     </script>
-        <a href="identifier.php" class="custom-link">Connexion</a>
+        <a class="btn" href="identifier.php" class="custom-link">Retour à la page de connexion</a>
     </div>
 </body>
 </html>

@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,10 +16,8 @@
     <link rel="stylesheet" type="text/css" href="abonnement.css">
 </head>
 <body>
-    <?php include('../../sidebar.php'); ?>
-    <div class="content">
-        <?php include('Changerabo.php'); ?>
-    </div>
-
+  <div class="content">
+    <p>Paiement:</p>
+  </div>
 </body>
 </html>

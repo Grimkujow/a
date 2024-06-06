@@ -125,7 +125,7 @@
       // Diviser la ligne en champs à l'aide de la virgule comme délimiteur
         $fields = explode('##2', $line);
 
-      // Vérifier si le numéro de champ demandé est valide
+      // Vérifie si le numéro de champ demandé est valide
         if (isset($fields[$fieldNumber])) {
            return $fields[$fieldNumber];
         } else {
@@ -145,7 +145,9 @@
   
   
   $expediteur =  $_SESSION['user_id']; //correction
-  $destinataire ="664b6f4e1c237"; // hardcodé pour le moment 
+  $destinataire = $_SESSION['destinataire']; // destinataire
+    //$destdexu = $_SESSION['destinataire'];
+    
   //hna 664b6f4e1c237
   //sjui 664b784f0695b
   //on crée le fichier de discussion avec les deux pseudo impliqués par ordre alphabétique
@@ -168,8 +170,7 @@
   fwrite($fichier,"");
   //echo "$expediteur <br> $destinataire <br>";
 
-  echo "Votre $numutilisateur discussion avec $destinataire :<br>
-  Veuillez";
+  echo "Votre $numutilisateur discussion avec $destinataire :<br>fps";
   //les messages de chque personne seront délimités par "##1" pour la personne 1 (selon l'ordre alphabétique) et ""##2" pr la personne 2
   // les messages de l'autre utilisateur seront affiché à gauche
   // il sera impossible d'écrire ces caractères dans les messages -> renvoie une erreur
@@ -205,7 +206,7 @@
   
     ?>
   <br>
-  <form action="" method="post" onsubmit="clearLocalStorage()">
+  <form action="" method="post" onsubmit="clearLocalStorage()"> 
       <label for="texte">Saisissez un nouveau message :</label>
       <input type="text" id="texte" name="texte" value="<?php echo isset($_POST['texte']) ? htmlspecialchars($_POST['texte'], ENT_QUOTES, 'UTF-8') : ''; ?>">
       <input type="submit" value="Envoyer">
@@ -219,6 +220,7 @@
           else{
     //echo " salut$resultat";
               $fichier = fopen($ndiscu, 'c+');
+              while (($ligne = fgets($fichier)) !== false){}
     fwrite($fichier,"##$numutilisateur$resultat##$numutilisateur\n");
           fclose($fichier);}
       

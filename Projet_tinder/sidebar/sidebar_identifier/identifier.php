@@ -16,8 +16,8 @@
             <h4 class="my-0 font-weight-normal">Connexion</h4>
         </div><br>
     <?php include('connexion.php'); ?>
-       
-        <a href="inscription.php" class="custom-link">Inscription</a>
+
+
         </form>
     </div>
 </body>

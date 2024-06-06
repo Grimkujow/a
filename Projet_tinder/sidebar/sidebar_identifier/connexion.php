@@ -1,9 +1,22 @@
 <form id="emailForm" method="post">
-    <label for="pseudo">Pseudo :</label><br><br>
-    <input type="pseudo" id="pseudo" name="pseudo" placeholder="Pseudo" required><br><form action="inscription.php" method="post">
-    <small>Exemple : pseudo</small><br><br>
-    Mot de passe : <br><br><input type="password" name="mot_de_passe" placeholder="Mot de passe" required><br><br>
-    <input type="submit" value="Continuer">
+    <label for="pseudo">Pseudo:</label><br>
+    <input type="text" id="pseudo" name="pseudo" placeholder="Votre pseudo" required><br>
+    <small>Exemple: pseudo</small><br><br>
+
+    Mot de passe:<br>
+    <input type="password" name="mot_de_passe" placeholder="Votre mot de passe" required><br><br>
+
+    <input class="btn" type="submit" value="Continuer">
+    <button class="btn">
+        <span class="button-content">
+            <a href="inscription.php" class="custom-link">Inscription</a>
+        </span>
+    </button>
+    <button class = "btn">
+        <span class="button-content">
+            <a href="oublimdp.php" class="custom-link">Mot de passe oublié</a>
+        </span>
+    </button>
 </form>
     
 <?php
@@ -25,6 +38,7 @@ $utilisateurs_lignes_connexion = explode("\n", $utilisateurs_connexion);
                 echo "Connexion verifiée \n";
                 $_SESSION['user_id'] = $infos_utilisateur[1];
                 $_SESSION['pseudo'] = $infos_utilisateur[2];
+                $_SESSION['abo'] = $infos_utilisateur[5];
                 $_SESSION['loggedin'] = true;
                 exit();
             }

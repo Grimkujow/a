@@ -37,6 +37,7 @@
 
 /* Styles pour le contenu */
 .content {
+
     position: relative; /* Position relative pour déplacer le contenu */
     left: 10px;
     padding: 20px; /* Espacement interne du contenu */
@@ -69,6 +70,10 @@
     padding-top: 2px;
     padding-bottom: 1px;
     text-align: left;
+}
+.custom-link{
+    color: #000000;
+    text-decoration: none;
 }
 
 .s_button {
@@ -389,6 +394,7 @@ header .container {
 /* BEGIN ORIGINAL BUTTON STYLES */
 
 .btn{
+    margin: 5px 10px 10px 10px;
     border-width: 2px;
     border-style: outset;
     border-color: buttonface;
@@ -446,7 +452,8 @@ CARDS
 
 */
 .card-container {
-    justify-content:center;
+    transform-origin: left center;
+    transition: transform 0.3s/* Origine de transformation à gauche au centre verticalement */
     display: flex;          /* Utilise Flexbox pour disposer les éléments */
     flex-wrap: nowrap;      /* Empêche les éléments de passer à la ligne suivante */
     overflow-x: auto;       /* Ajoute un défilement horizontal si nécessaire */
