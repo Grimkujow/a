@@ -25,6 +25,7 @@ if ($user_ligne !== null) {
     $pseudo = $data[2];
     $age = $data[7];
     $ville = $data[8];
+    $abo = $data[5];
     echo "<p style='font-family: Arial, sans-serif; font-size: 20px; text-align: center;'> <span style='color: black;'>Bienvenue</span> <span style='color: white;'>$pseudo </span>!</p>";
 
     echo "Adresse mail : $email<br>";
@@ -32,6 +33,7 @@ if ($user_ligne !== null) {
     echo "Sexe : $sexe<br>";
     echo "Age : $age<br>";
     echo "Ville : $ville<br>";
+    echo "Abonnement de type : $abo<br>";
 } else {
     echo "L'utilisateur associé à cet identifiant de session n'a pas été trouvé.";
 }

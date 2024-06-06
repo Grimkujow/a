@@ -23,15 +23,13 @@
           <div class="card-deck mb-3 text-center">
               <div class="card square mb-4">
                   <div class="card-header">
-                      <h4 class="my-0 font-weight-normal">Square card</h4>
+                      <h4 class="my-0 font-weight-normal">Abonnement 1</h4>
                   </div>
                   <div class="card-body">
                       <h1 class="card-title pricing-card-title">9€ <small class="text-muted">/ mois</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
                           <li>Jusqu'à 4 dessins par profil !</li>
-                          <li>Messagerie améliorée</li>
-                          <li>Vues du profil</li>
-                          <li>Une contribution à notre site</li>
+                          <li>Une contribution importante pour notre site !</li>
                       </ul>
                         <span class="button-content">
                             <a href="paiement.php" class="btn btn-lg btn-block btn-primary">Acheter</a>
@@ -40,15 +38,13 @@
               </div>
               <div class="card mb-4">
                   <div class="card-header">
-                      <h4 class="my-0 font-weight-normal">Normal card</h4>
+                      <h4 class="my-0 font-weight-normal">Abonnement 2</h4>
                   </div>
                   <div class="card-body">
                       <h1 class="card-title pricing-card-title">90€ <small class="text-muted">/ an</small></h1>
                       <ul class="list-unstyled mt-3 mb-4">
-                          <li>tous les avantages ci-dessus</li>
-                          <li>seulement 7€50/mois</li>
-                          <li>.</li>
-                          <li>.</li>
+                          <li>Jusqu'à 8 dessins par profil !</li>
+                          <li>Une contribution importante pour notre site !</li>
                       </ul>
                       <span class="button-content">
                           <a href="paiement2.php" class="btn btn-lg btn-block btn-primary">Acheter</a>

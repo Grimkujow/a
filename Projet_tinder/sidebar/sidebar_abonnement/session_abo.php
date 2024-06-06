@@ -16,7 +16,7 @@ function get_user_data($file, $id){
     }    
 return null;
 }
-if ($data[5] == 1) {
+if ($data[5] == 0) {
 } else {
     echo "L'utilisateur est déjà abonné.";
 }

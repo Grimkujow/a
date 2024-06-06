@@ -22,6 +22,7 @@
             <input type="hidden" name="imageData" id="imageData">
         </form>
     </div>
+</div>
 <script>
     // JavaScript pour dessiner sur le canvas
     document.addEventListener('DOMContentLoaded', function() {
@@ -81,12 +82,12 @@
 
         var thicknessRange = document.getElementById('thicknessRange');
         thicknessRange.addEventListener('input', function() {
-            thickness = parseInt(this.value); // Met à jour l'épaisseur du trait
+            thickness = parseInt(this.value); 
         });
 
         var clearButton = document.getElementById('clearButton');
         clearButton.addEventListener('click', function() {
-            context.clearRect(0, 0, canvas.width, canvas.height); // Efface tout le contenu du canevas
+            context.clearRect(0, 0, canvas.width, canvas.height); // Efface tout le contenu du canvas
         });
     });
 </script>

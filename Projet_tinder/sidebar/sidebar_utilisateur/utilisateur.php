@@ -27,7 +27,8 @@
         <?php include('../../session_verif.php'); ?>
         <div class="content-header">
             <h4 class="my-0 font-weight-normal">Profil</h4>
-        </div><br>
+        </div>
+        <br>
         <?php include('show_data_user.php'); ?>
         <br><br><br><br><p>Votre dessin : </p>
         <?php
@@ -62,7 +63,7 @@
                     echo "L'image n'existe pas.";
                 }
             }
-            else if($nb_abo == 1){
+            else if($nb_abo == 1 || $nb_abo == 2){
                     $imageCount = 1;
                     $imageFound = false;
 
@@ -87,16 +88,21 @@
             else {
                     echo "Niveau d'abonnement invalide.";
                 }
-            
+            echo('</div>')
         ?>
-        <br><br><br>
-        <button class="btn">
-        <span class="button-content">
-            <a href="edit_user.php" class="custom-link">Modifier le profil</a></span></button>
-        <button class="btn">
-        <span class="button-content" ><a href="deconnexion.php" class="custom-link">Déconnexion</a></span></button>
+            <br><br>
+            <button class="btn">
+                <span class="button-content">
+                    <a href="edit_user.php" class="custom-link">Modifier le profil</a>
+                </span>
+            </button>
+            <button class="btn">
+                <span class="button-content">
+                    <a href="deconnexion.php" class="custom-link">Déconnexion</a>
+                </span>
+            </button>
         </div>
-        </div>
+
 
 </body>
 </html>

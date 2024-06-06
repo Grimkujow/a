@@ -38,17 +38,21 @@
                     $data = explode(',', $lineToUpdate);
 
                     if ($lineToUpdate !== null) {
-                        if ($modification === 'pseudo') {
-                            $data[2] = $nouvelle_valeur;
-                        } 
-                        elseif ($modification === 'mail') {
-                            $data[0] = $nouvelle_valeur;
-                        }
-                        elseif ($modification === 'mot_de_passe') {
-                            $data[3] = password_hash($nouvelle_valeur, PASSWORD_DEFAULT);
-                        } 
-                        elseif ($modification === 'ville') {
-                            $data[8] = $nouvelle_valeur;
+                        switch ($modification) {
+                            case 'pseudo':
+                                $data[2] = $nouvelle_valeur;
+                                break;
+                            case 'mail':
+                                $data[0] = $nouvelle_valeur;
+                                break;
+                            case 'mot_de_passe':
+                                $data[3] = password_hash($nouvelle_valeur, PASSWORD_DEFAULT);
+                                break;
+                            case 'ville':
+                                $data[8] = $nouvelle_valeur;
+                                break;
+                            default:
+                                break;
                         }
                     }
 

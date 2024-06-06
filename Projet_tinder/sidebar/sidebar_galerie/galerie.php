@@ -15,6 +15,12 @@
     <div class="content">
     <?php include('../../sidebar.php'); 
         include('list_creation.php'); 
+        include('galerie.html');
+
+        if (isset($_SESSION['id_img'])) {
+            $test = $_SESSION['id_img'];
+            echo "Session ID: $test";
+        }
     function afficherGalerie() {
         $nom_fichier = "list_galerie.txt";
         if (file_exists($nom_fichier)) {
@@ -24,8 +30,9 @@
 
             foreach ($donnees_tableau as $ligne) {
                 if (!empty($ligne)) {
-                    list($id, $lien_image) = explode(",", $ligne);
-                    echo "<a href='galerie.php'><img class='modal-trigger' src='$lien_image' style='width:500px;cursor:pointer;' data-id='$id'><br></a>";
+                    list($id, $lien_image, $pseudo) = explode(",", $ligne);
+                    echo "$pseudo :";
+                    echo "<a href='galerie.php'><img src='$lien_image' style='width:500px;cursor:pointer;' data-id='$id'><br></a>";
                 }
             }
         } else {

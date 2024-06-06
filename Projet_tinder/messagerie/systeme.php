@@ -4,9 +4,13 @@
 <html>
 <head>
 <title>Envoyer un message</title>
-  <meta charset="UTF-8">
-
-
+        <meta charset="UTF-8">
+      <link rel="shortcut icon" href="main_image/logo.png">
+      <link rel="stylesheet" type="text/css" href="../sidebar_css.css">
+      <script src="script.js"></script>
+    </head>
+    <body>
+      <?php include('../sidebar.php'); ?>
 
 
 
@@ -36,7 +40,10 @@
 
 <body>
 
-
+    <div class="content">
+      <div class="content-header">
+          <h4 class="my-0 font-weight-normal">Messagerie</h4>
+      </div><br>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             // Restaure les valeurs des champs du formulaire
@@ -111,7 +118,7 @@
     }}
     function couper1($line, $fieldNumber) {
       //renvoie nULL si erreur
-      // Diviser la ligne en champs à l'aide de la virgule comme délimiteur
+      // Diviser la ligne en champs à l'aide de ##1 comme délimiteur
         $fields = explode('##1', $line);
 
       // Vérifier si le numéro de champ demandé est valide
@@ -122,7 +129,7 @@
         }}
     function couper2($line, $fieldNumber) {
       //renvoie nULL si erreur
-      // Diviser la ligne en champs à l'aide de la virgule comme délimiteur
+      // Diviser la ligne en champs à l'aide de ##2 comme délimiteur
         $fields = explode('##2', $line);
 
       // Vérifie si le numéro de champ demandé est valide
@@ -142,7 +149,8 @@
           return [$chaine2, $chaine1];
       }
   }
-  
+
+//echo("<br> $resultat <br>");
   
   $expediteur =  $_SESSION['user_id']; //correction
   $destinataire = $_SESSION['destinataire']; // destinataire
@@ -170,7 +178,31 @@
   fwrite($fichier,"");
   //echo "$expediteur <br> $destinataire <br>";
 
-  echo "Votre $numutilisateur discussion avec $destinataire :<br>fps";
+
+
+    function retrouvenom($id) {
+      $data ='../dataU/utilisateurs.txt';//chemin du fichier des données
+      $fichier = fopen ($data,'r');
+      if ($fichier){
+      while (($ligne = fgets($fichier)) !== false) {
+        if (estContenue($id,$ligne)){
+            $nom=couper($ligne,2);
+            fclose($fichier);
+            return $nom;}
+
+      }
+
+        fclose($fichier);
+        return false;
+      }
+       echo("ERREUR ouverture fichier<br>");
+      return false;
+
+      }
+    
+    $ndest = retrouvenom($destinataire);
+    
+  echo "Votre discussion avec $ndest :<br>";
   //les messages de chque personne seront délimités par "##1" pour la personne 1 (selon l'ordre alphabétique) et ""##2" pr la personne 2
   // les messages de l'autre utilisateur seront affiché à gauche
   // il sera impossible d'écrire ces caractères dans les messages -> renvoie une erreur
@@ -238,4 +270,12 @@
   //$texto=$_SESSION['msgenvoi'];
   //echo "$texto";
     ?> 
+<br><br>
+          <button class="btn">
+            <span class="button-content">
+          <a href="../index.php" class="custom-link">Revenir en arrière</a>
+                      </span>
+                  </button>
+
+          </div>
 </body>

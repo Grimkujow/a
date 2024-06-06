@@ -18,6 +18,10 @@
             width: 200px;
             height: auto;
         }
+        .action-form {
+            background-color: transparent;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -92,39 +96,6 @@
                 echo "Date d'inscription : $date<br>";
                 echo "Age : $age<br>";
                 echo "Ville : $ville<br><br>";
-                $chemin = "/Projet_tinder/sidebar/sidebar_utilisateur/user_drawing/" . $id . '/';
-                $imageCount = 1;
-                $imageFound = false;
-
-                while (true) {
-                    $imagePath = $uploadDirectory . 'img-' . $imageCount . '.png';
-                    echo '<div class="image-container">';
-                    if (file_exists($imagePath)){ 
-                        echo "<img src='$imagePath' alt='Drawing'>";
-                        $imageCount++;
-                        $imageFound = true;
-                    }
-                    else {
-                        break;
-                    }
-                    echo '</div>';
-                }
-
-                if (!$imageFound) {
-                    echo "Aucune image trouvée pour cet utilisateur.";
-                }
-                if (file_exists($_SERVER['DOCUMENT_ROOT'] . $chemin)) {
-                    echo "Dessin :&nbsp;";
-                    echo '<div class="image-container">';
-                    echo "<img src=\"$chemin\" alt=\"Drawing\">";
-                    echo '</div>';
-                } 
-                else {
-                    echo "<p><em>Le dessin n'a pas encore été créé par $pseudo.</em></p>";
-                }
-            } 
-            else {
-                echo "<p style=\"color:red;\">Erreur : Aucun utilisateur a été sélectionné.</p>";
             }
         }
 
@@ -165,7 +136,7 @@
 
                         file_put_contents($file, $nouveauContenu);
 
-                        echo "<p style=\"color:green;\">Les modifications ont été enregistrées avec succès pour l'utilisateur $nouvelle_valeur</p>";
+                        echo "<p style=\"color:green;\">Les modifications ont été enregistrées avec succès pour l'utilisateur $data[2]</p>";
                     } 
                 }
             }
@@ -178,6 +149,7 @@
         if ($total_users !== 0) {
             echo '<form id="userForm" method="post" action="">';
             echo '<h3>Liste des ' . $total_users . ' utilisateurs :</h3>';
+            echo '<h5>Veuillez sélectionner lutilisateur à modifier</h5>';
             echo '<select id="userSelect" name="application" required size="' . 15 . '">';
             foreach ($lines as $line) {
                 $data = explode(',', $line);
@@ -236,7 +208,7 @@
         
         ?>
 
-        <form method="post" action="">
+        <form method="post" action="" class="action-form">
             <h4>Que voulez-vous faire ?</h4>
             <input type="radio" id="ban" name="modification" value="ban">
             <label for="ban">Bannir un membre</label><br>

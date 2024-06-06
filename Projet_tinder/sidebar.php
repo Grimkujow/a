@@ -87,13 +87,15 @@ error_log('$_SESSION[\'loggedin\']: ' . (isset($_SESSION['loggedin']) ? $_SESSIO
                     </span>
                 </button>
             </li>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?> 
             <li>
                 <button class="btn">
                     <span class="button-content">
-                        <a href="/Projet_tinder/messagerie/choixdisc.php" class="custom-link">Messagerie</a>
+                        <a href="/Projet_tinder/messagerie/index.php" class="custom-link">Messagerie</a>
                     </span>
                 </button>
             </li> 
+    <?php endif; ?>
         </ul>
     </div>
 </body>
